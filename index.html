@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Pião da Casa Própria em CSS 3D</title>
+  <style type="text/css" media="screen">
+
+    
+    @media all and (max-width: 700px) and (min-width:700px) {
+      /* media querie para diminuir o tamanho do pião para que ele caiba no post do Loop Infinito */
+      #wrapper {
+        -webkit-transform: scale(0.6);
+      }
+      /* diminui o tamanho das linhas de decoração para o post */
+      #decoracao > div {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.7) !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.7) !important;
+      }
+    }
+
+    /* Geral
+    ---------------------------------------- */
+    html {
+      height:100%;
+      background-color: white;
+    }
+
+    body {
+      position: relative;
+      height: 100%; 
+      width: 100%;  
+      margin: 0;
+    }
+
+    /* Pião
+    ---------------------------------------- */
+    /* 
+      animação para o cubo rodar 
+      uma animação básica ao redor do eixo Y
+    */
+    @-webkit-keyframes rodando {
+      from { -webkit-transform: rotateY(0); }
+      to   { -webkit-transform: rotateY(-360deg); }
+    }
+
+    #wrapper {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -200px;
+      margin-top: -200px;
+      -webkit-perspective: 1000;
+      -webkit-perspective-origin: 50% 225px;
+      -webkit-transform-style: preserve-3d;
+    }
+    
+    #piao {
+      position: relative;
+      top: 50px;
+      margin: 0 auto;
+      height: 200px;
+      width: 200px;
+      -webkit-transform-style: preserve-3d;
+      -webkit-animation: rodando 4s infinite linear;
+    }
+
+      #piao .numero {
+        position: absolute;
+        height: 300px;
+        width: 200px;
+        border: 6px solid white;
+        -webkit-box-sizing: border-box;
+        text-align: center;
+        line-height: 280px;
+        font-family: Impact, sans-serif;
+        font-size: 240px;
+        color: white;
+        background-color: rgba(0, 0, 0, 1);
+        -webkit-backface-visibility: hidden;
+      }
+
+      #piao > .numero.um {
+        -webkit-transform: translateZ(170px);
+      }
+
+      #piao > .numero.dois {
+        -webkit-transform: rotateY(60deg) translateZ(170px);
+      }
+
+      #piao > .numero.tres {
+        -webkit-transform: rotateY(120deg) translateZ(170px);
+      }
+
+      #piao > .numero.quatro {
+        -webkit-transform: rotateY(180deg) translateZ(170px);
+      }
+
+      #piao > .numero.cinco {
+        -webkit-transform: rotateY(240deg) translateZ(170px);
+      }
+
+      #piao > .numero.seis {
+        -webkit-transform: rotateY(300deg) translateZ(170px);
+      }
+
+    /* Decoração
+    ---------------------------------------- */
+    #moldura {
+      height: 250px;
+      width: 250px;
+      border: 30px solid rgb(200, 0, 0);
+      border-radius: 250px;
+      position: absolute;
+      top: 55px;
+      left: 45px;
+      -webkit-transform: translateZ(400px);  
+      /* 
+        1ª shadow: shadow interna para simular profundidade
+        2ª shadow: shadow externa para simular profundidade
+        3ª shadow: shadow do elemento
+      */    
+      box-shadow: 
+        inset -1px -2px 0px 3px rgb(150, 0, 0), 
+        -2px -2px 0px 2px rgb(150, 0, 0),
+        -2px -2px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #piao-bg {
+      height: 430px;
+      width: 430px;      
+      border-radius: 300px;
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      -webkit-transform: translateZ(1px);
+      background-color: #222;
+    }
+
+    #decoracao {
+      width: 10000px;
+      height: 100%;
+      left: -5000px;
+      margin: 0 50%;
+      position: absolute;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+      #decoracao > div {
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        top: 50%;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+        border-top: 2px solid rgba(0, 0, 0, 0.7);
+        background-color: white;
+      }
+
+      #decoracao > div:nth-child(1) {
+        -webkit-transform: rotate(0deg);
+      }
+
+      #decoracao > div:nth-child(2) {
+        -webkit-transform: rotate(4deg);
+      }
+
+      #decoracao > div:nth-child(3) {
+        -webkit-transform: rotate(8deg);
+      }
+
+      #decoracao > div:nth-child(4) {
+        -webkit-transform: rotate(12deg);
+      }
+
+      #decoracao > div:nth-child(5) {
+        -webkit-transform: rotate(16deg);
+      }
+
+      #decoracao > div:nth-child(6) {
+        -webkit-transform: rotate(20deg);
+      }
+
+      #decoracao > div:nth-child(7) {
+        -webkit-transform: rotate(24deg);
+      }
+
+      #decoracao > div:nth-child(8) {
+        -webkit-transform: rotate(28deg);
+      }
+
+      #decoracao > div:nth-child(9) {
+        -webkit-transform: rotate(32deg);
+      }
+
+      #decoracao > div:nth-child(10) {
+        -webkit-transform: rotate(36deg);
+      }
+
+      #decoracao > div:nth-child(11) {
+        -webkit-transform: rotate(40deg);
+      }
+
+      #decoracao > div:nth-child(12) {
+        -webkit-transform: rotate(44deg);
+      }
+
+      #decoracao > div:nth-child(13) {
+        -webkit-transform: rotate(48deg);
+      }
+
+      #decoracao > div:nth-child(14) {
+        -webkit-transform: rotate(52deg);
+      }
+
+      #decoracao > div:nth-child(15) {
+        -webkit-transform: rotate(56deg);
+      }
+
+      #decoracao > div:nth-child(16) {
+        -webkit-transform: rotate(60deg);
+      }
+
+      #decoracao > div:nth-child(17) {
+        -webkit-transform: rotate(64deg);
+      }
+
+      #decoracao > div:nth-child(18) {
+        -webkit-transform: rotate(68deg);
+      }
+
+      #decoracao > div:nth-child(19) {
+        -webkit-transform: rotate(72deg);
+      }
+
+      #decoracao > div:nth-child(20) {
+        -webkit-transform: rotate(76deg);
+      }
+
+      #decoracao > div:nth-child(21) {
+        -webkit-transform: rotate(80deg);
+      }
+
+      #decoracao > div:nth-child(22) {
+        -webkit-transform: rotate(84deg);
+      }
+
+      #decoracao > div:nth-child(23) {
+        -webkit-transform: rotate(88deg);
+      }
+
+      #decoracao > div:nth-child(24) {
+        -webkit-transform: rotate(92deg);
+      }
+
+      #decoracao > div:nth-child(25) {
+        -webkit-transform: rotate(96deg);
+      }
+
+      #decoracao > div:nth-child(26) {
+        -webkit-transform: rotate(100deg);
+      }
+
+      #decoracao > div:nth-child(27) {
+        -webkit-transform: rotate(104deg);
+      }
+
+      #decoracao > div:nth-child(28) {
+        -webkit-transform: rotate(108deg);
+      }
+
+      #decoracao > div:nth-child(29) {
+        -webkit-transform: rotate(112deg);
+      }
+
+      #decoracao > div:nth-child(30) {
+        -webkit-transform: rotate(116deg);
+      }
+
+      #decoracao > div:nth-child(31) {
+        -webkit-transform: rotate(120deg);
+      }
+
+      #decoracao > div:nth-child(32) {
+        -webkit-transform: rotate(124deg);
+      }
+
+      #decoracao > div:nth-child(33) {
+        -webkit-transform: rotate(128deg);
+      }
+
+      #decoracao > div:nth-child(34) {
+        -webkit-transform: rotate(132deg);
+      }
+
+      #decoracao > div:nth-child(35) {
+        -webkit-transform: rotate(136deg);
+      }
+
+      #decoracao > div:nth-child(36) {
+        -webkit-transform: rotate(140deg);
+      }
+
+      #decoracao > div:nth-child(37) {
+        -webkit-transform: rotate(144deg);
+      }
+
+      #decoracao > div:nth-child(38) {
+        -webkit-transform: rotate(148deg);
+      }
+
+      #decoracao > div:nth-child(39) {
+        -webkit-transform: rotate(152deg);
+      }
+
+      #decoracao > div:nth-child(40) {
+        -webkit-transform: rotate(156deg);
+      }
+
+      #decoracao > div:nth-child(41) {
+        -webkit-transform: rotate(160deg);
+      }
+
+      #decoracao > div:nth-child(42) {
+        -webkit-transform: rotate(164deg);
+      }
+
+      #decoracao > div:nth-child(43) {
+        -webkit-transform: rotate(168deg);
+      }
+
+      #decoracao > div:nth-child(44) {
+        -webkit-transform: rotate(172deg);
+      }
+
+      #decoracao > div:nth-child(45) {
+        -webkit-transform: rotate(176deg);
+      }
+
+  </style>  
+</head>
+<body>
+  <!-- wrapper para o pião, moldura e bg do "container" do pião -->
+  <div id="wrapper">
+    <div id="piao">
+      <!-- todas as faces do pião -->
+      <div class="numero um">1</div>
+      <div class="numero dois">2</div>
+      <div class="numero tres">3</div>
+      <div class="numero quatro">4</div>
+      <div class="numero cinco">5</div>
+      <div class="numero seis">6</div>        
+    </div>
+    <!-- moldura vermelha -->
+    <div id="moldura"></div>
+    <!-- 
+      background quase preto, para deixar o pião mais próximo do real,
+      se alguém conseguir alcançar o mesmo efeito sem esse elemento, por favor, pull request =)
+    -->
+    <div id="piao-bg"></div>
+  </div>
+  <!-- CLÁSSICA música do Pião da Casa Própria, máááá ôê -->
+  <!-- <audio autoplay="true" loop="true">
+    <source src="piao-da-casa-propria-soundtrack.mp3" />
+    <source src="piao-da-casa-propria-soundtrack.m4a" />
+  </audio> -->
+  <!-- 
+    gambiarra para gerar o background
+    aqui novamente, se alguém souber um jeito mais limpo com apenas código, favor dar um pull request =)
+  -->
+  <div id="decoracao">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+</html>
