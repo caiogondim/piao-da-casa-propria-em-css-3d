@@ -16,6 +16,13 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.7) !important;
         border-top: 1px solid rgba(0, 0, 0, 0.7) !important;
       }
+      /* não mostra o botão de mute quando estiver dentro do post */
+      #mute{
+        /*display: none !important;*/
+        -webkit-transform: scale(0.7);
+        top: 10px !important;
+        right: 10px !important;
+      }
     }
 
     /* Geral
@@ -137,6 +144,30 @@
       -webkit-transform: translateZ(1px);
       background-color: #222;
     }
+
+    #mute {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background-color: whiteSmoke;
+      background-image: -webkit-linear-gradient(top, white, #DDD);
+      border-radius: 40px;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 10px;
+      color: #333;
+      font-size: 40px;
+      line-height: 72px;
+      width: 68px;
+      height: 70px;
+      text-align: center;
+      text-decoration: none;
+      text-shadow: rgba(255, 255, 255, 0.746094) 0px 1px 1px;
+      -webkit-transition: box-shadow 0.3s linear;
+      padding-left: 2px;
+    }
+
+      #mute:hover {
+        box-shadow: 0 0 0px 6px rgba(0, 0, 0, 0.4);
+      }
 
     #decoracao {
       width: 10000px;
@@ -361,10 +392,12 @@
     <div id="piao-bg"></div>
   </div>
   <!-- CLÁSSICA música do Pião da Casa Própria, máááá ôê -->
-  <!-- <audio autoplay="true" loop="true">
+  <audio preload="auto" loop="true">
     <source src="piao-da-casa-propria-soundtrack.mp3" />
     <source src="piao-da-casa-propria-soundtrack.m4a" />
-  </audio> -->
+  </audio>
+  <!-- botão para dar pause/play na música de fundo -->
+  <a href="" id="mute">▶</a>
   <!-- 
     gambiarra para gerar o background
     aqui novamente, se alguém souber um jeito mais limpo com apenas código, favor dar um pull request =)
@@ -416,5 +449,26 @@
     <div></div>
     <div></div>
   </div>
+  <script type="text/javascript">
+
+    // botão para parar e dar play na música de fundo
+    (function(){
+      document.querySelector('a#mute').addEventListener('click', function(event){
+        event.preventDefault()
+
+        var audio = document.querySelector('audio')
+        var muteButton = document.querySelector('#mute')
+
+        if ( audio.paused ) {
+          audio.play()
+          muteButton.innerHTML = '❚❚'
+        } else {
+          audio.pause()
+          muteButton.innerHTML = '▶'
+        }  
+      })  
+    }())    
+
+  </script>
 </body>
 </html>
