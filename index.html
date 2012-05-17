@@ -10,6 +10,7 @@
       /* media querie para diminuir o tamanho do pião para que ele caiba no post do Loop Infinito */
       #wrapper {
         -webkit-transform: scale(0.6);
+        -moz-transform: scale(0.6);
       }
       /* diminui o tamanho das linhas de decoração para o post */
       #decoracao > div {
@@ -19,6 +20,7 @@
       /* não mostra o botão de mute quando estiver dentro do post */
       #mute{
         -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
         top: 10px !important;
         right: 10px !important;
       }
@@ -50,6 +52,10 @@
       from { -webkit-transform: rotateY(0); }
       to   { -webkit-transform: rotateY(-360deg); }
     }
+    @-moz-keyframes rodando {
+      from { -moz-transform: rotateY(0); }
+      to   { -moz-transform: rotateY(-360deg); }
+    }
 
     #wrapper {
       width: 400px;
@@ -60,6 +66,7 @@
       margin-left: -200px;
       margin-top: -200px;
       -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
     }
     
     #piao {
@@ -68,11 +75,13 @@
       margin: 0 auto; /* centraliza o pião */
       height: 330px;
       width: 200px; 
+      -webkit-transform-style: preserve-3d; 
+      -moz-transform-style: preserve-3d;
     }
 
-    #piao.rodando {
-      -webkit-transform-style: preserve-3d; 
+    #piao.rodando {      
       -webkit-animation: rodando 4s infinite linear;
+      -moz-animation: rodando 4s infinite linear;
     }
 
       #piao .numero {
@@ -81,6 +90,7 @@
         width: 200px;
         border: 6px solid white;
         -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
         text-align: center;
         line-height: 320px;
         font-family: Impact, sans-serif;
@@ -91,26 +101,32 @@
 
       #piao > .numero.um {
         -webkit-transform: translateZ(170px);
+        -moz-transform: translateZ(170px);
       }
 
       #piao > .numero.dois {
         -webkit-transform: rotateY(60deg) translateZ(170px);
+        -moz-transform: rotateY(60deg) translateZ(170px);
       }
 
       #piao > .numero.tres {
         -webkit-transform: rotateY(120deg) translateZ(170px);
+        -moz-transform: rotateY(120deg) translateZ(170px);
       }
 
       #piao > .numero.quatro {
         -webkit-transform: rotateY(180deg) translateZ(170px);
+        -moz-transform: rotateY(180deg) translateZ(170px);
       }
 
       #piao > .numero.cinco {
         -webkit-transform: rotateY(240deg) translateZ(170px);
+        -moz-transform: rotateY(240deg) translateZ(170px);
       }
 
       #piao > .numero.seis {
         -webkit-transform: rotateY(300deg) translateZ(170px);
+        -moz-transform: rotateY(300deg) translateZ(170px);
       }
 
     /* Decoração
@@ -124,6 +140,7 @@
       top: -45px;
       left: -50px;
       -webkit-transform: translateZ(400px);
+      -moz-transform: translateZ(400px);
       /* 
         1ª shadow: simula 3D no elemento, na parte interna
         2ª shadow: shadow interna para simular profundidade
@@ -145,6 +162,7 @@
       top: -10px;
       left: -10px;
       -webkit-transform: translateZ(1px);
+      -moz-transform: translateZ(1px);
       background-color: #222;
     }
 
@@ -154,6 +172,7 @@
       top: 20px;
       background-color: whiteSmoke;
       background-image: -webkit-linear-gradient(top, white, #DDD);
+      background-image: -moz-linear-gradient(top, white, #DDD);
       border-radius: 40px;
       box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 10px;
       color: #333;
@@ -165,6 +184,7 @@
       text-decoration: none;
       text-shadow: rgba(255, 255, 255, 0.746094) 0px 1px 1px;
       -webkit-transition: box-shadow 0.3s linear;
+      -moz-transition: box-shadow 0.3s linear;
       padding-left: 2px;
     }
 
@@ -198,178 +218,222 @@
 
       #decoracao > div:nth-child(2) {
         -webkit-transform: rotate(4deg);
+        -moz-transform: rotate(4deg);
       }
 
       #decoracao > div:nth-child(3) {
         -webkit-transform: rotate(8deg);
+        -moz-transform: rotate(8deg);
       }
 
       #decoracao > div:nth-child(4) {
         -webkit-transform: rotate(12deg);
+        -moz-transform: rotate(12deg);
       }
 
       #decoracao > div:nth-child(5) {
         -webkit-transform: rotate(16deg);
+        -moz-transform: rotate(16deg);
       }
 
       #decoracao > div:nth-child(6) {
         -webkit-transform: rotate(20deg);
+        -moz-transform: rotate(20deg);
       }
 
       #decoracao > div:nth-child(7) {
         -webkit-transform: rotate(24deg);
+        -moz-transform: rotate(24deg);
       }
 
       #decoracao > div:nth-child(8) {
         -webkit-transform: rotate(28deg);
+        -moz-transform: rotate(28deg);
       }
 
       #decoracao > div:nth-child(9) {
         -webkit-transform: rotate(32deg);
+        -moz-transform: rotate(32deg);
       }
 
       #decoracao > div:nth-child(10) {
         -webkit-transform: rotate(36deg);
+        -moz-transform: rotate(36deg);
       }
 
       #decoracao > div:nth-child(11) {
         -webkit-transform: rotate(40deg);
+        -moz-transform: rotate(40deg);
       }
 
       #decoracao > div:nth-child(12) {
         -webkit-transform: rotate(44deg);
+        -moz-transform: rotate(44deg);
       }
 
       #decoracao > div:nth-child(13) {
         -webkit-transform: rotate(48deg);
+        -moz-transform: rotate(48deg);
       }
 
       #decoracao > div:nth-child(14) {
         -webkit-transform: rotate(52deg);
+        -moz-transform: rotate(52deg);
       }
 
       #decoracao > div:nth-child(15) {
         -webkit-transform: rotate(56deg);
+        -moz-transform: rotate(56deg);
       }
 
       #decoracao > div:nth-child(16) {
         -webkit-transform: rotate(60deg);
+        -moz-transform: rotate(60deg);
       }
 
       #decoracao > div:nth-child(17) {
         -webkit-transform: rotate(64deg);
+        -moz-transform: rotate(64deg);
       }
 
       #decoracao > div:nth-child(18) {
         -webkit-transform: rotate(68deg);
+        -moz-transform: rotate(68deg);
       }
 
       #decoracao > div:nth-child(19) {
         -webkit-transform: rotate(72deg);
+        -moz-transform: rotate(72deg);
       }
 
       #decoracao > div:nth-child(20) {
         -webkit-transform: rotate(76deg);
+        -moz-transform: rotate(76deg);
       }
 
       #decoracao > div:nth-child(21) {
         -webkit-transform: rotate(80deg);
+        -moz-transform: rotate(80deg);
       }
 
       #decoracao > div:nth-child(22) {
         -webkit-transform: rotate(84deg);
+        -moz-transform: rotate(84deg);
       }
 
       #decoracao > div:nth-child(23) {
         -webkit-transform: rotate(88deg);
+        -moz-transform: rotate(88deg);
       }
 
       #decoracao > div:nth-child(24) {
         -webkit-transform: rotate(92deg);
+        -moz-transform: rotate(92deg);
       }
 
       #decoracao > div:nth-child(25) {
         -webkit-transform: rotate(96deg);
+        -moz-transform: rotate(96deg);
       }
 
       #decoracao > div:nth-child(26) {
         -webkit-transform: rotate(100deg);
+        -moz-transform: rotate(100deg);
       }
 
       #decoracao > div:nth-child(27) {
         -webkit-transform: rotate(104deg);
+        -moz-transform: rotate(104deg);
       }
 
       #decoracao > div:nth-child(28) {
         -webkit-transform: rotate(108deg);
+        -moz-transform: rotate(108deg);
       }
 
       #decoracao > div:nth-child(29) {
         -webkit-transform: rotate(112deg);
+        -moz-transform: rotate(112deg);
       }
 
       #decoracao > div:nth-child(30) {
         -webkit-transform: rotate(116deg);
+        -moz-transform: rotate(116deg);
       }
 
       #decoracao > div:nth-child(31) {
         -webkit-transform: rotate(120deg);
+        -moz-transform: rotate(120deg);
       }
 
       #decoracao > div:nth-child(32) {
         -webkit-transform: rotate(124deg);
+        -moz-transform: rotate(124deg);
       }
 
       #decoracao > div:nth-child(33) {
         -webkit-transform: rotate(128deg);
+        -moz-transform: rotate(128deg);
       }
 
       #decoracao > div:nth-child(34) {
         -webkit-transform: rotate(132deg);
+        -moz-transform: rotate(132deg);
       }
 
       #decoracao > div:nth-child(35) {
         -webkit-transform: rotate(136deg);
+        -moz-transform: rotate(136deg);
       }
 
       #decoracao > div:nth-child(36) {
         -webkit-transform: rotate(140deg);
+        -moz-transform: rotate(140deg);
       }
 
       #decoracao > div:nth-child(37) {
         -webkit-transform: rotate(144deg);
+        -moz-transform: rotate(144deg);
       }
 
       #decoracao > div:nth-child(38) {
         -webkit-transform: rotate(148deg);
+        -moz-transform: rotate(148deg);
       }
 
       #decoracao > div:nth-child(39) {
         -webkit-transform: rotate(152deg);
+        -moz-transform: rotate(152deg);
       }
 
       #decoracao > div:nth-child(40) {
         -webkit-transform: rotate(156deg);
+        -moz-transform: rotate(156deg);
       }
 
       #decoracao > div:nth-child(41) {
         -webkit-transform: rotate(160deg);
+        -moz-transform: rotate(160deg);
       }
 
       #decoracao > div:nth-child(42) {
         -webkit-transform: rotate(164deg);
+        -moz-transform: rotate(164deg);
       }
 
       #decoracao > div:nth-child(43) {
         -webkit-transform: rotate(168deg);
+        -moz-transform: rotate(168deg);
       }
 
       #decoracao > div:nth-child(44) {
         -webkit-transform: rotate(172deg);
+        -moz-transform: rotate(172deg);
       }
 
       #decoracao > div:nth-child(45) {
         -webkit-transform: rotate(176deg);
+        -moz-transform: rotate(176deg);
       }
 
   </style>
