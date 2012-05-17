@@ -124,12 +124,14 @@
       left: -50px;
       -webkit-transform: translateZ(400px);  
       /* 
-        1ª shadow: shadow interna para simular profundidade
-        2ª shadow: shadow externa para simular profundidade
-        3ª shadow: shadow do elemento
-      */    
+        1ª shadow: simula 3D no elemento, na parte interna
+        2ª shadow: shadow interna para simular profundidade
+        3ª shadow: simula 3D no elemento, na parte externa
+        4ª shadow: shadow externa para simular profundidade 
+      */
       box-shadow: 
         inset -1px -2px 0px 3px rgb(150, 0, 0), 
+        inset -1px -2px 10px 10px rgba(0, 0, 0, 0.5),
         -2px -2px 0px 3px rgb(150, 0, 0),
         -4px -4px 10px 10px rgba(0, 0, 0, 0.5);
     }
