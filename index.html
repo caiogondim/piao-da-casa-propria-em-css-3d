@@ -29,6 +29,7 @@
     html {
       height:100%;
       background-color: white;
+      overflow: hidden;
     }
 
     body {
@@ -36,6 +37,7 @@
       height: 100%; 
       width: 100%;  
       margin: 0;
+      overflow: hidden;
     }
 
     /* Pião
@@ -65,8 +67,7 @@
       top: 40px;
       margin: 0 auto; /* centraliza o pião */
       height: 330px;
-      width: 200px;   
-      -webkit-transition: -webkit-transform 0.5s;   
+      width: 200px; 
     }
 
     #piao.rodando {
@@ -192,7 +193,7 @@
       }
 
       #decoracao > div:nth-child(1) {
-        -webkit-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);        
       }
 
       #decoracao > div:nth-child(2) {
