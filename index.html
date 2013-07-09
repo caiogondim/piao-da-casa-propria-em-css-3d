@@ -5,12 +5,13 @@
   <title>Pião da Casa Própria em CSS 3D</title>
   <style type="text/css" media="screen">
 
-    
+
     @media all and (max-width: 700px) and (min-width:700px) {
       /* media querie para diminuir o tamanho do pião para que ele caiba no post do Loop Infinito */
       #wrapper {
         -webkit-transform: scale(0.6);
         -moz-transform: scale(0.6);
+        transform: scale(0.6);
       }
       /* diminui o tamanho das linhas de decoração para o post */
       #decoracao > div {
@@ -19,10 +20,11 @@
       }
       /* não mostra o botão de mute quando estiver dentro do post */
       #mute{
-        -webkit-transform: scale(0.7);
-        -moz-transform: scale(0.7);
         top: 10px !important;
         right: 10px !important;
+        -webkit-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        transform: scale(0.7);
       }
     }
 
@@ -36,16 +38,16 @@
 
     body {
       position: relative;
-      height: 100%; 
-      width: 100%;  
+      height: 100%;
+      width: 100%;
       margin: 0;
       overflow: hidden;
     }
 
     /* Pião
     ---------------------------------------- */
-    /* 
-      animação para o pião rodar 
+    /*
+      animação para o pião rodar
       uma animação básica ao redor do eixo Y
     */
     @-webkit-keyframes rodando {
@@ -55,6 +57,10 @@
     @-moz-keyframes rodando {
       from { -moz-transform: rotateY(0); }
       to   { -moz-transform: rotateY(-360deg); }
+    }
+    @keyframes rodando {
+      from { transform: rotateY(0); }
+      to   { transform: rotateY(-360deg); }
     }
 
     #wrapper {
@@ -67,21 +73,24 @@
       margin-top: -200px;
       -webkit-transform-style: preserve-3d;
       -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
-    
+
     #piao {
       position: relative;
       top: 40px;
       margin: 0 auto; /* centraliza o pião */
       height: 330px;
-      width: 200px; 
-      -webkit-transform-style: preserve-3d; 
+      width: 200px;
+      -webkit-transform-style: preserve-3d;
       -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
 
-    #piao.rodando {      
+    #piao.rodando {
       -webkit-animation: rodando 4s infinite linear;
       -moz-animation: rodando 4s infinite linear;
+      animation: rodando 4s infinite linear;
     }
 
       #piao .numero {
@@ -89,44 +98,51 @@
         height: 100%;
         width: 200px;
         border: 6px solid white;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
         text-align: center;
         line-height: 320px;
         font-family: Impact, sans-serif;
         font-size: 240px;
         color: white;
         background-color: rgb(0, 0, 0);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
       }
 
       #piao > .numero.um {
         -webkit-transform: translateZ(170px);
         -moz-transform: translateZ(170px);
+        transform: translateZ(170px);
       }
 
       #piao > .numero.dois {
         -webkit-transform: rotateY(60deg) translateZ(170px);
         -moz-transform: rotateY(60deg) translateZ(170px);
+        transform: rotateY(60deg) translateZ(170px);
       }
 
       #piao > .numero.tres {
         -webkit-transform: rotateY(120deg) translateZ(170px);
         -moz-transform: rotateY(120deg) translateZ(170px);
+        transform: rotateY(120deg) translateZ(170px);
       }
 
       #piao > .numero.quatro {
         -webkit-transform: rotateY(180deg) translateZ(170px);
         -moz-transform: rotateY(180deg) translateZ(170px);
+        transform: rotateY(180deg) translateZ(170px);
       }
 
       #piao > .numero.cinco {
         -webkit-transform: rotateY(240deg) translateZ(170px);
         -moz-transform: rotateY(240deg) translateZ(170px);
+        transform: rotateY(240deg) translateZ(170px);
       }
 
       #piao > .numero.seis {
         -webkit-transform: rotateY(300deg) translateZ(170px);
         -moz-transform: rotateY(300deg) translateZ(170px);
+        transform: rotateY(300deg) translateZ(170px);
       }
 
     /* Decoração
@@ -141,14 +157,15 @@
       left: -50px;
       -webkit-transform: translateZ(400px);
       -moz-transform: translateZ(400px);
-      /* 
+      transform: translateZ(400px);
+      /*
         1ª shadow: simula 3D no elemento, na parte interna
         2ª shadow: shadow interna para simular profundidade
         3ª shadow: simula 3D no elemento, na parte externa
-        4ª shadow: shadow externa para simular profundidade 
+        4ª shadow: shadow externa para simular profundidade
       */
-      box-shadow: 
-        inset -1px -2px 0px 3px rgb(150, 0, 0), 
+      box-shadow:
+        inset -1px -2px 0px 3px rgb(150, 0, 0),
         inset -1px -2px 10px 10px rgba(0, 0, 0, 0.5),
         -2px -2px 0px 3px rgb(150, 0, 0),
         -4px -4px 10px 10px rgba(0, 0, 0, 0.5);
@@ -156,14 +173,15 @@
 
     #piao-bg {
       height: 430px;
-      width: 430px;      
+      width: 430px;
       border-radius: 300px;
       position: absolute;
       top: -10px;
       left: -10px;
+      background-color: #222;
       -webkit-transform: translateZ(1px);
       -moz-transform: translateZ(1px);
-      background-color: #222;
+      transform: translateZ(1px);
     }
 
     #mute {
@@ -173,6 +191,7 @@
       background-color: whiteSmoke;
       background-image: -webkit-linear-gradient(top, white, #DDD);
       background-image: -moz-linear-gradient(top, white, #DDD);
+      background-image: linear-gradient(top, white, #DDD);
       border-radius: 40px;
       box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 10px;
       color: #333;
@@ -183,9 +202,10 @@
       text-align: center;
       text-decoration: none;
       text-shadow: rgba(255, 255, 255, 0.746094) 0px 1px 1px;
+      padding-left: 2px;
       -webkit-transition: box-shadow 0.3s linear;
       -moz-transition: box-shadow 0.3s linear;
-      padding-left: 2px;
+      transition: box-shadow 0.3s linear;
     }
 
       #mute:hover {
@@ -213,227 +233,273 @@
       }
 
       #decoracao > div:nth-child(1) {
-        -webkit-transform: rotate(0deg);        
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
       }
 
       #decoracao > div:nth-child(2) {
         -webkit-transform: rotate(4deg);
         -moz-transform: rotate(4deg);
+        transform: rotate(4deg);
       }
 
       #decoracao > div:nth-child(3) {
         -webkit-transform: rotate(8deg);
         -moz-transform: rotate(8deg);
+        transform: rotate(8deg);
       }
 
       #decoracao > div:nth-child(4) {
         -webkit-transform: rotate(12deg);
         -moz-transform: rotate(12deg);
+        transform: rotate(12deg);
       }
 
       #decoracao > div:nth-child(5) {
         -webkit-transform: rotate(16deg);
         -moz-transform: rotate(16deg);
+        transform: rotate(16deg);
       }
 
       #decoracao > div:nth-child(6) {
         -webkit-transform: rotate(20deg);
         -moz-transform: rotate(20deg);
+        transform: rotate(20deg);
       }
 
       #decoracao > div:nth-child(7) {
         -webkit-transform: rotate(24deg);
         -moz-transform: rotate(24deg);
+        transform: rotate(24deg);
       }
 
       #decoracao > div:nth-child(8) {
         -webkit-transform: rotate(28deg);
         -moz-transform: rotate(28deg);
+        transform: rotate(28deg);
       }
 
       #decoracao > div:nth-child(9) {
         -webkit-transform: rotate(32deg);
         -moz-transform: rotate(32deg);
+        transform: rotate(32deg);
       }
 
       #decoracao > div:nth-child(10) {
         -webkit-transform: rotate(36deg);
         -moz-transform: rotate(36deg);
+        transform: rotate(36deg);
       }
 
       #decoracao > div:nth-child(11) {
         -webkit-transform: rotate(40deg);
         -moz-transform: rotate(40deg);
+        transform: rotate(40deg);
       }
 
       #decoracao > div:nth-child(12) {
         -webkit-transform: rotate(44deg);
         -moz-transform: rotate(44deg);
+        transform: rotate(44deg);
       }
 
       #decoracao > div:nth-child(13) {
         -webkit-transform: rotate(48deg);
         -moz-transform: rotate(48deg);
+        transform: rotate(48deg);
       }
 
       #decoracao > div:nth-child(14) {
         -webkit-transform: rotate(52deg);
         -moz-transform: rotate(52deg);
+        transform: rotate(52deg);
       }
 
       #decoracao > div:nth-child(15) {
         -webkit-transform: rotate(56deg);
         -moz-transform: rotate(56deg);
+        transform: rotate(56deg);
       }
 
       #decoracao > div:nth-child(16) {
         -webkit-transform: rotate(60deg);
         -moz-transform: rotate(60deg);
+        transform: rotate(60deg);
       }
 
       #decoracao > div:nth-child(17) {
         -webkit-transform: rotate(64deg);
         -moz-transform: rotate(64deg);
+        transform: rotate(64deg);
       }
 
       #decoracao > div:nth-child(18) {
         -webkit-transform: rotate(68deg);
         -moz-transform: rotate(68deg);
+        transform: rotate(68deg);
       }
 
       #decoracao > div:nth-child(19) {
         -webkit-transform: rotate(72deg);
         -moz-transform: rotate(72deg);
+        transform: rotate(72deg);
       }
 
       #decoracao > div:nth-child(20) {
         -webkit-transform: rotate(76deg);
         -moz-transform: rotate(76deg);
+        transform: rotate(76deg);
       }
 
       #decoracao > div:nth-child(21) {
         -webkit-transform: rotate(80deg);
         -moz-transform: rotate(80deg);
+        transform: rotate(80deg);
       }
 
       #decoracao > div:nth-child(22) {
         -webkit-transform: rotate(84deg);
         -moz-transform: rotate(84deg);
+        transform: rotate(84deg);
       }
 
       #decoracao > div:nth-child(23) {
         -webkit-transform: rotate(88deg);
         -moz-transform: rotate(88deg);
+        transform: rotate(88deg);
       }
 
       #decoracao > div:nth-child(24) {
         -webkit-transform: rotate(92deg);
         -moz-transform: rotate(92deg);
+        transform: rotate(92deg);
       }
 
       #decoracao > div:nth-child(25) {
         -webkit-transform: rotate(96deg);
         -moz-transform: rotate(96deg);
+        transform: rotate(96deg);
       }
 
       #decoracao > div:nth-child(26) {
         -webkit-transform: rotate(100deg);
         -moz-transform: rotate(100deg);
+        transform: rotate(100deg);
       }
 
       #decoracao > div:nth-child(27) {
         -webkit-transform: rotate(104deg);
         -moz-transform: rotate(104deg);
+        transform: rotate(104deg);
       }
 
       #decoracao > div:nth-child(28) {
         -webkit-transform: rotate(108deg);
         -moz-transform: rotate(108deg);
+        transform: rotate(108deg);
       }
 
       #decoracao > div:nth-child(29) {
         -webkit-transform: rotate(112deg);
         -moz-transform: rotate(112deg);
+        transform: rotate(112deg);
       }
 
       #decoracao > div:nth-child(30) {
         -webkit-transform: rotate(116deg);
         -moz-transform: rotate(116deg);
+        transform: rotate(116deg);
       }
 
       #decoracao > div:nth-child(31) {
         -webkit-transform: rotate(120deg);
         -moz-transform: rotate(120deg);
+        transform: rotate(120deg);
       }
 
       #decoracao > div:nth-child(32) {
         -webkit-transform: rotate(124deg);
         -moz-transform: rotate(124deg);
+        transform: rotate(124deg);
       }
 
       #decoracao > div:nth-child(33) {
         -webkit-transform: rotate(128deg);
         -moz-transform: rotate(128deg);
+        transform: rotate(128deg);
       }
 
       #decoracao > div:nth-child(34) {
         -webkit-transform: rotate(132deg);
         -moz-transform: rotate(132deg);
+        transform: rotate(132deg);
       }
 
       #decoracao > div:nth-child(35) {
         -webkit-transform: rotate(136deg);
         -moz-transform: rotate(136deg);
+        transform: rotate(136deg);
       }
 
       #decoracao > div:nth-child(36) {
         -webkit-transform: rotate(140deg);
         -moz-transform: rotate(140deg);
+        transform: rotate(140deg);
       }
 
       #decoracao > div:nth-child(37) {
         -webkit-transform: rotate(144deg);
         -moz-transform: rotate(144deg);
+        transform: rotate(144deg);
       }
 
       #decoracao > div:nth-child(38) {
         -webkit-transform: rotate(148deg);
         -moz-transform: rotate(148deg);
+        transform: rotate(148deg);
       }
 
       #decoracao > div:nth-child(39) {
         -webkit-transform: rotate(152deg);
         -moz-transform: rotate(152deg);
+        transform: rotate(152deg);
       }
 
       #decoracao > div:nth-child(40) {
         -webkit-transform: rotate(156deg);
         -moz-transform: rotate(156deg);
+        transform: rotate(156deg);
       }
 
       #decoracao > div:nth-child(41) {
         -webkit-transform: rotate(160deg);
         -moz-transform: rotate(160deg);
+        transform: rotate(160deg);
       }
 
       #decoracao > div:nth-child(42) {
         -webkit-transform: rotate(164deg);
         -moz-transform: rotate(164deg);
+        transform: rotate(164deg);
       }
 
       #decoracao > div:nth-child(43) {
         -webkit-transform: rotate(168deg);
         -moz-transform: rotate(168deg);
+        transform: rotate(168deg);
       }
 
       #decoracao > div:nth-child(44) {
         -webkit-transform: rotate(172deg);
         -moz-transform: rotate(172deg);
+        transform: rotate(172deg);
       }
 
       #decoracao > div:nth-child(45) {
         -webkit-transform: rotate(176deg);
         -moz-transform: rotate(176deg);
+        transform: rotate(176deg);
       }
 
   </style>
@@ -460,11 +526,11 @@
       <div class="numero tres">3</div>
       <div class="numero quatro">4</div>
       <div class="numero cinco">5</div>
-      <div class="numero seis">6</div>        
+      <div class="numero seis">6</div>
     </div>
     <!-- moldura vermelha -->
     <div id="moldura"></div>
-    <!-- 
+    <!--
       background quase preto, para deixar o pião mais próximo do real,
       se alguém conseguir alcançar o mesmo efeito sem esse elemento, por favor, pull request =)
     -->
@@ -478,7 +544,7 @@
   </audio>
   <!-- botão para dar pause/play na música de fundo -->
   <a href="" id="mute">▶</a>
-  <!-- 
+  <!--
     gambiarra para gerar o background
     aqui novamente, se alguém souber um jeito mais limpo com apenas código, favor dar um pull request =)
   -->
@@ -540,7 +606,7 @@
         var muteButton = document.querySelector('#mute')
         var piao = document.querySelector('div#piao')
 
-        if ( audio.paused ) {          
+        if ( audio.paused ) {
           audio.play()
           muteButton.innerHTML = '❚❚' // modifica legenda do botão
           piao.className = 'rodando' // deixa o pião rodando
@@ -548,9 +614,9 @@
           audio.pause()
           muteButton.innerHTML = '▶' // modifica a legenda do botão
           piao.className = '' // faz com que o pião pare de rodar
-        }  
-      })  
-    }())    
+        }
+      })
+    }())
 
   </script>
 </body>
